@@ -47,7 +47,7 @@ function view() {
     tasks.forEach(task => {
         taskList.innerHTML += `<div class=" p-3 mb-3">
         <h6>Номер задачи: ${task.id}</h6>
-        <span class="badge bg-primary ">${task.isOpen ? 'открыто' : 'закрыто'}</span>
+        <span class="badge ${task.isOpen ? 'bg-primary' : 'bg-secondary'} ">${task.isOpen ? 'открыто' : 'закрыто'}</span>
         <h3 class="my-4">${task.description}</h3>
         <div class="status">
             <i class="far fa-clock"></i>
@@ -60,8 +60,7 @@ function view() {
         </div>
            <button type="button" class="btn cls-btn ${task.isOpen ? 'btn-success' : 'btn-warning'}"><i class="fas fa-check"></i><span class="ms-1">${task.isOpen ? 'Закрыть' : 'Открыть'}</span></button>
         <button type="button" class=" del-btn btn btn-danger"><i class="fas fa-times"></i><span class="ms-1">Удалить</span></button>
-    </div>
-`
+    </div>`
     })
     document.querySelectorAll('.del-btn').forEach((btn, btnIndex) => {
         btn.addEventListener('click', () => {
